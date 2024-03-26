@@ -1,22 +1,23 @@
 import model.*;
+import molinos.MolinoMuelasCirculares;
 
 public class Main {
     public static void main(String[] args) {
 
-        CafeteraRistretto ristretto = new CafeteraRistretto(800,200);
-        CafeteraEspresso espresso = new CafeteraEspresso(700,100);
-        CafeteraMolinillo conMolinillo = new CafeteraMolinillo(500,20);
-        CafeteraFiltro conFiltro = new CafeteraFiltro(100,20);
+        CafeteraRistretto ristretto = new CafeteraRistretto(800,200, TipoCafe.RISTRETTO);
+        CafeteraEspresso espresso = new CafeteraEspresso(700,100, TipoCafe.ESPRESSO);
+        CafeteraMolinillo conMolinillo = new CafeteraMolinillo(500,20, TipoCafe.CON_MOLINILLO, new MolinoMuelasCirculares());
+        CafeteraFiltro conFiltro = new CafeteraFiltro(100,20, TipoCafe.CON_FILTRO);
 
         ristretto.llenar();
         espresso.llenar();
         conMolinillo.llenar();
         conFiltro.llenar();
 
-        ristretto.servirTaza(50, TipoCafe.RISTRETTO);
-        espresso.servirTaza(30, TipoCafe.ESPRESSO);
-        conMolinillo.servirTaza(40, TipoCafe.CON_MOLINILLO);
-        conFiltro.servirTaza(60, TipoCafe.CON_FILTRO);
+        ristretto.servirTaza(50);
+        espresso.servirTaza(30);
+        conMolinillo.servirTaza(40);
+        conFiltro.servirTaza(60);
 
         ristretto.agregarCafe(100);
         espresso.agregarCafe(150);
