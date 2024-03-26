@@ -2,7 +2,7 @@ package model;
 
 public interface Cafetera {
     void llenar();
-    void servirTaza(int cantidad);
+    TipoCafe servirTaza(int cantidad, TipoCafe tipoCafe);
     void vaciar();
     void agregarCafe(int cantidad);
 }

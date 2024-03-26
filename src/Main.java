@@ -3,15 +3,30 @@ import model.*;
 public class Main {
     public static void main(String[] args) {
 
-        Cafetera cafeteraNormal = new CafeteraNormal(1000, 500);
-        Cafetera cafeteraRistretto = new CafeteraRistretto(800, 400);
-        Cafetera cafeteraEspresso = new CafeteraEspresso(500, 200);
-        Cafetera cafeteraMolinillo = new CafeteraMolinillo(1200, 600);
+        CafeteraRistretto ristretto = new CafeteraRistretto(800,200);
+        CafeteraEspresso espresso = new CafeteraEspresso(700,100);
+        CafeteraMolinillo conMolinillo = new CafeteraMolinillo(500,20);
+        CafeteraFiltro conFiltro = new CafeteraFiltro(100,20);
 
-        cafeteraNormal.llenar();
-        cafeteraRistretto.servirTaza(200);
-        cafeteraEspresso.vaciar();
-        cafeteraMolinillo.agregarCafe(300);
+        ristretto.llenar();
+        espresso.llenar();
+        conMolinillo.llenar();
+        conFiltro.llenar();
+
+        ristretto.servirTaza(50, TipoCafe.RISTRETTO);
+        espresso.servirTaza(30, TipoCafe.ESPRESSO);
+        conMolinillo.servirTaza(40, TipoCafe.CON_MOLINILLO);
+        conFiltro.servirTaza(60, TipoCafe.CON_FILTRO);
+
+        ristretto.agregarCafe(100);
+        espresso.agregarCafe(150);
+        conMolinillo.agregarCafe(120);
+        conFiltro.agregarCafe(80);
+
+        ristretto.vaciar();
+        espresso.vaciar();
+        conMolinillo.vaciar();
+        conFiltro.vaciar();
     }
 
 }

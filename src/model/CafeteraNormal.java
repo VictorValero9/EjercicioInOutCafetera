@@ -3,6 +3,7 @@ package model;
 public class CafeteraNormal implements Cafetera {
     private int capacidadMaxima;
     private int cantidadActual;
+    private TipoCafe tipoCafe;
 
     public CafeteraNormal(int capacidadMaxima, int cantidadActual) {
         this.capacidadMaxima = capacidadMaxima;
@@ -14,13 +15,15 @@ public class CafeteraNormal implements Cafetera {
         System.out.println("La cafetera ha sido llenada.");
     }
 
-    public void servirTaza(int cantidad) {
+    public TipoCafe servirTaza(int cantidad, TipoCafe tipoCafe) {
         if (cantidadActual >= cantidad) {
             cantidadActual -= cantidad;
-            System.out.println("Se ha servido una taza de café.");
+            System.out.println("Se ha servido una taza de café de tipo: " + tipoCafe);
         } else {
-            System.out.println("No hay suficiente café en la cafetera para servir una taza.");
+            System.out.println("No hay suficiente café en la cafetera para servir una taza con el tipo: " + tipoCafe);
         }
+        return tipoCafe;
+
     }
 
     public void vaciar() {
@@ -32,6 +35,8 @@ public class CafeteraNormal implements Cafetera {
         cantidadActual = Math.min(capacidadMaxima, cantidadActual + cantidad); // Aseguramos que la cantidad no exceda la capacidad máxima
         System.out.println("Se ha agregado café a la cafetera.");
     }
+
+
 
     // Getters y setters
     public int getCapacidadMaxima() {
@@ -48,5 +53,11 @@ public class CafeteraNormal implements Cafetera {
 
     public void setCantidadActual(int cantidadActual) {
         this.cantidadActual = cantidadActual;
+    }
+    public TipoCafe getTipoCafe() {
+        return tipoCafe;
+    }
+    public void setTipoCafe(TipoCafe tipoCafe) {
+        this.tipoCafe = tipoCafe;
     }
 }
