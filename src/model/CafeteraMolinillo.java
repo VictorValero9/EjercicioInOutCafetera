@@ -3,14 +3,14 @@ package model;
 import molinos.IMolino;
 
 public class CafeteraMolinillo extends CafeteraNormal{
-    private IMolino molino;
+    private final IMolino molino;
     public CafeteraMolinillo(int capacidadMaxima, int capacidadActual, TipoCafe tipoCafe, IMolino molino){
         super(capacidadMaxima,capacidadActual, tipoCafe);
         this.molino = molino;
     }
 
     @Override
-    public TipoCafe servirTaza(int cantidad) {
+    public ICafetera servirTaza(int cantidad) {
         molino.molerCafe();
         if (cantidadActual >= cantidad) {
             cantidadActual -= cantidad;
@@ -18,7 +18,7 @@ public class CafeteraMolinillo extends CafeteraNormal{
         } else {
             System.out.println("No hay suficiente café en la cafetera para servir una taza con el tipo: " + tipoCafe);
         }
-        return tipoCafe;
+        return this;
     }
 
 }

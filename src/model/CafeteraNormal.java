@@ -16,14 +16,14 @@ public abstract class CafeteraNormal implements ICafetera {
         System.out.println("La cafetera ha sido llenada.");
     }
 
-    public TipoCafe servirTaza(int cantidad) {
+    public ICafetera servirTaza(int cantidad) {
         if (cantidadActual >= cantidad) {
             cantidadActual -= cantidad;
             System.out.println("Se ha servido una taza de café de tipo: " + tipoCafe);
         } else {
             System.out.println("No hay suficiente café en la cafetera para servir una taza con el tipo: " + tipoCafe);
         }
-        return tipoCafe;
+        return this;
     }
 
     public void vaciar() {
